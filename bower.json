@@ -1,0 +1,23 @@
+{
+  "name": "open-weather-app",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dtrinh888/Git-Primer-Challenge",
+  "authors": [
+    "dtrinh888 <dtrinh888@gmail.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8"
+  }
+}
