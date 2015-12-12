@@ -3,14 +3,14 @@ angular.module('OWMApp', ['ngRoute'])
 		$routeProvider.when('/', {
 			templateUrl: 'home.html',
 			controller: 'HomeCtrl'
-		}).when('/city', {
+		}).when('/cities/:city', {
 			templateUrl: 'city.html',
 			controller: 'CityCtrl'
 		});
 	}])
-	.controller('HomeCtrl', function($scope){
+	.controller('HomeCtrl', ['$scope', function($scope){
 
-	})
-	.controller('CityCtrl', function($scope){
-
-	});
+	}])
+	.controller('CityCtrl', ['$scope', '$routeParams', function($scope, $routeParams){
+		$scope.city = $routeParams.city;
+	}]);
