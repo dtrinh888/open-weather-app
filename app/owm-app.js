@@ -42,4 +42,12 @@ angular.module('OWMApp', ['ngRoute'])
 		$rootScope.$on('$routeChangeError', function(){
 			$loaction.path('/error');
 		});
+		$rootScope.$on('$routeChangeStart', function(){
+			$rootScope.isLoading = true;
+		});
+		$rootScope.$on('$routeChangeSuccess', ['$timeout', function(){
+			$timeout(function(){
+				$rootScope.isLoading = false;
+			}, 1000);
+		}]);
 	});
