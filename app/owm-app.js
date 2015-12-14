@@ -4,7 +4,7 @@ angular.module('OWMApp', ['ngRoute'])
 		$routeProvider.when('/', {
 			templateUrl: 'home.html',
 			controller: 'HomeCtrl'
-		}).when('/city', {
+		})/*.when('/city', {
 			templateUrl: 'city.html',
 			controller: 'CityCtrl',
 			resolve: {
@@ -13,8 +13,8 @@ angular.module('OWMApp', ['ngRoute'])
 					return owmFindCity(city);
 				}
 			}
-		})
-		/*.when('/cities/:city', {
+		})*/
+		.when('/cities/:city', {
 			templateUrl: 'city.html',
 			controller: 'CityCtrl',
 			resolve: {
@@ -27,7 +27,7 @@ angular.module('OWMApp', ['ngRoute'])
 					return city;
 				}
 			}
-		})*/
+		})
 		.when('/error', {
 			template: '<p>Error - Page Not Found</p>'
 		});
@@ -37,4 +37,9 @@ angular.module('OWMApp', ['ngRoute'])
 	}])
 	.controller('CityCtrl', function($scope, city){
 		$scope.city = city;
+	})
+	.run(function($rootScope, $location){
+		$rootScope.$on('$routeChangeError', function(){
+			$loaction.path('/error');
+		});
 	});
